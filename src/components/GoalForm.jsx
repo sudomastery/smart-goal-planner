@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './GoalForm.css'
+// styles moved to index.css
 
 function GoalForm({ onAddGoal }) {
   const [formData, setFormData] = useState({

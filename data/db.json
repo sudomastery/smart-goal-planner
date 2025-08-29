@@ -89,6 +89,15 @@
       "deadline": "2025-12-31",
       "savedAmount": 700,
       "createdAt": "2025-08-26"
+    },
+    {
+      "id": "0b7f",
+      "name": "test",
+      "targetAmount": 234234,
+      "category": "Travel",
+      "deadline": "2025-09-06",
+      "savedAmount": 2422.98,
+      "createdAt": "2025-08-29"
     }
   ]
 }

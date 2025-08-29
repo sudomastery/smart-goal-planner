@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './GoalCard.css'
+// styles moved to index.css
 
 function GoalCard({ goal, onDeposit, onDelete, onUpdate }) {
   const [showDepositForm, setShowDepositForm] = useState(false)
@@ -9,12 +9,12 @@ function GoalCard({ goal, onDeposit, onDelete, onUpdate }) {
   const progressPercentage = Math.round((goal.savedAmount / goal.targetAmount) * 100)
   const remainingAmount = goal.targetAmount - goal.savedAmount
   
-  // Calculate days until deadline
+  // calculate days to deadline
   const today = new Date()
   const deadline = new Date(goal.deadline)
   const daysRemaining = Math.ceil((deadline - today) / (1000 * 60 * 60 * 24))
   
-  // Determine status
+  // statuss
   const isCompleted = goal.savedAmount >= goal.targetAmount
   const isOverdue = daysRemaining < 0 && !isCompleted
 
@@ -31,13 +31,13 @@ function GoalCard({ goal, onDeposit, onDelete, onUpdate }) {
 
   return (
     <div className="goal-card">
-      {/* Goal Header */}
+      {/* g header */}
       <div className="goal-header">
         <h3 className="goal-name">{goal.name}</h3>
         <span className="goal-category">{goal.category}</span>
       </div>
 
-      {/* Progress Section */}
+      {/* progress*/}
       <div className="progress-section">
         <div className="amount-info">
           <div className="saved-amount">
@@ -50,13 +50,13 @@ function GoalCard({ goal, onDeposit, onDelete, onUpdate }) {
           </div>
         </div>
         
-        {/* Progress Percentage Only */}
+        {/* show percentage */}
         <div className="progress-text">
           {progressPercentage}% complete
         </div>
       </div>
 
-      {/* Status Section */}
+      {/* ststus */}
       <div className="status-section">
         {isCompleted ? (
           <div className="status completed">Goal Completed!</div>
@@ -77,7 +77,7 @@ function GoalCard({ goal, onDeposit, onDelete, onUpdate }) {
         )}
       </div>
 
-      {/* Actions Section */}
+    
       <div className="actions-section">
         {!isCompleted && (
           <>

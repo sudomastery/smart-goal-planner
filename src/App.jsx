@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
-import './App.css'
+// styles moved to index.css
 import GoalCard from './components/GoalCard'
 import GoalForm from './components/GoalForm'
 
 function App() {
-  // store goals in state
+  
   const [goals, setGoals] = useState([])
-  // State for loading indicator
+  
   const [loading, setLoading] = useState(true)
 
   
@@ -14,7 +14,7 @@ function App() {
     fetchGoals()
   }, [])
 
-  // Function to fetch goals from the API
+  
   const fetchGoals = async () => {
     try {
       const response = await fetch('http://localhost:3000/goals')
@@ -27,7 +27,7 @@ function App() {
     }
   }
 
-  // Function to add a new goal
+  
   const handleAddGoal = async (goalData) => {
     try {
       const response = await fetch('http://localhost:3000/goals', {
@@ -47,14 +47,14 @@ function App() {
     }
   }
 
-  // make a deposit to a goal
+  
   const handleDeposit = async (goalId, amount) => {
     try {
-      // find the goal to update
+      
       const goal = goals.find(g => g.id === goalId)
       const newSavedAmount = goal.savedAmount + amount
 
-      // UPDATE on the server
+      
       const response = await fetch(`http://localhost:3000/goals/${goalId}`, {
         method: 'PATCH',
         headers: {
@@ -66,7 +66,7 @@ function App() {
       })
 
       if (response.ok) {
-        // Update local state
+        
         setGoals(goals.map(g => 
           g.id === goalId 
             ? { ...g, savedAmount: newSavedAmount }
@@ -78,7 +78,7 @@ function App() {
     }
   }
 
-  // Function to delete a goal
+  
   const handleDelete = async (goalId) => {
     if (window.confirm('Are you sure you want to delete this goal?')) {
       try {
