@@ -1,13 +1,65 @@
-# React + Vite
+# Smart Goal Planner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Smart Goal Planner is a minimal React application (Vite) that helps users create and track multiple savings goals. It uses a local JSON file served by `json-server` to simulate a REST API and supports full CRUD operations: create, read, update (deposits), and delete goals.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add financial goals with name, target amount (Ksh), category, and deadline
+- View an overview: total goals, total saved, completed goals, total target
+- Deposit money into any goal (updates saved amount)
+- Delete goals
+- All data persisted to `data/db.json` via `json-server`
 
-## Expanding the ESLint configuration
+## Quick start
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# smart-goal-planner
+1. Install dependencies
+
+```bash
+npm install
+```
+
+2. Start the JSON server (serves the database)
+
+```bash
+npx json-server --watch data/db.json --port 3000
+```
+
+3. Start the React dev server
+
+```bash
+npm run dev
+```
+
+4. Open the app in your browser at the address shown by Vite (usually http://localhost:5173)
+
+## Project structure
+
+- `data/db.json` — local JSON database with sample goals
+- `src/` — React source code
+	- `App.jsx` — main app container and state management
+	- `components/GoalForm.jsx` — form for creating goals
+	- `components/GoalCard.jsx` — displays individual goals and actions
+	- `index.css` — single stylesheet for the project
+
+## API Endpoints (json-server)
+- `GET /goals`
+- `POST /goals`
+- `PATCH /goals/:id`
+- `DELETE /goals/:id`
+
+## Notes for learning
+
+- The app is intentionally minimal and uses a single stylesheet to simplify understanding styles.
+- Focus on `App.jsx` to understand state flow and API integration.
+- `GoalCard.jsx` demonstrates controlled forms for deposits and simple date math for deadlines.
+
+## Next steps (suggestions)
+
+- Add edit functionality to update goal details
+- Add validation and better error handling
+- Replace `json-server` with a real backend or a small Express API
+- Add unit tests for components
+
+---
+
+If you want I can expand any section (setup, architecture, or development workflow) or generate a printable PDF of this README.
