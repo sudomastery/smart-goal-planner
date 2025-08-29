@@ -47,19 +47,4 @@ npm run dev
 - `PATCH /goals/:id`
 - `DELETE /goals/:id`
 
-## Notes for learning
 
-- The app is intentionally minimal and uses a single stylesheet to simplify understanding styles.
-- Focus on `App.jsx` to understand state flow and API integration.
-- `GoalCard.jsx` demonstrates controlled forms for deposits and simple date math for deadlines.
-
-## Next steps (suggestions)
-
-- Add edit functionality to update goal details
-- Add validation and better error handling
-- Replace `json-server` with a real backend or a small Express API
-- Add unit tests for components
-
----
-
-If you want I can expand any section (setup, architecture, or development workflow) or generate a printable PDF of this README.
